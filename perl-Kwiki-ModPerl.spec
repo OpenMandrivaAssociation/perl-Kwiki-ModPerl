@@ -18,6 +18,7 @@ BuildRequires:	perl(Kwiki)
 BuildRequires:	apache-mod_perl
 BuildArch:	noarch
 Requires:	apache-mod_perl
+BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This module allows you to use Kwiki as a mod_perl content handler.

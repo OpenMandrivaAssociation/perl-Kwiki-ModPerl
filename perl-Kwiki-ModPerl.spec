@@ -1,30 +1,30 @@
-%define module	Kwiki-ModPerl
-%define name	perl-%{module}
-%define version 0.09
-%define release %mkrel 7
+%define upstream_name	 Kwiki-ModPerl
+%define upstream_version 0.09
 
-Name:		%{name}
-Version:	%{version}
-Release:	%{release}
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
 Summary:	Enable Kwiki to work under mod_perl 
-Source:		ftp://ftp.perl.org/pub/CPAN/modules/by-module/Kwiki/%{module}-%{version}.tar.bz2
-URL:		http://search.cpan.org/dist/%{module}/
 License:	GPL
 Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Kwiki/%{upstream_name}-%{upstream_version}.tar.bz2
+
 %if %{mdkversion} < 1010
 BuildRequires:	perl-devel
 %endif
 BuildRequires:	perl(Kwiki)
 BuildRequires:	apache-mod_perl
 BuildArch:	noarch
+BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}
 Requires:	apache-mod_perl
-BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
 This module allows you to use Kwiki as a mod_perl content handler.
 
 %prep
-%setup -q -n %{module}-%{version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -45,4 +45,3 @@ make test
 %doc Changes README
 %{perl_vendorlib}/Kwiki
 %{_mandir}/*/*
-

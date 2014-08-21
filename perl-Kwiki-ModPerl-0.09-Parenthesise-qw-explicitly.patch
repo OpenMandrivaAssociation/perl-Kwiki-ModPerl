@@ -1,0 +1,20 @@
+diff -uNr Kwiki-ModPerl-0.09/lib/Kwiki/ModPerl.pm Kwiki-ModPerl-0.09p/lib/Kwiki/ModPerl.pm
+--- Kwiki-ModPerl-0.09/lib/Kwiki/ModPerl.pm	2005-09-21 11:29:34.000000000 +0300
++++ Kwiki-ModPerl-0.09p/lib/Kwiki/ModPerl.pm	2013-10-01 00:16:00.110089600 +0300
+@@ -9,14 +9,14 @@
+         require Apache2::RequestUtil;
+         require Apache2::RequestIO;
+         require Apache2::Const;
+-        Apache2::Const->import qw(:common);
++        Apache2::Const->import( qw/:common/);
+     } else {
+         if ( $mod_perl::VERSION >= 1.99 ) {
+             require Apache::RequestRec;
+             require Apache::RequestUtil;
+             require Apache::RequestIO;
+             require Apache::Const;
+-            Apache::Const->import qw(:common);
++            Apache::Const->import( qw/:common/);
+         } else {
+             require Apache;
+             require Apache::Constants;

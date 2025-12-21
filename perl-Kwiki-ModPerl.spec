@@ -11,6 +11,7 @@ Url:		https://search.cpan.org/dist/%{upstream_name}/
 Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Kwiki/%{upstream_name}-%{upstream_version}.tar.bz2
 Patch0:		perl-Kwiki-ModPerl-0.09-Parenthesise-qw-explicitly.patch
 
+BuildRequires:	make
 BuildRequires:	perl-devel
 BuildRequires:	perl(Kwiki)
 BuildRequires:	apache-mod_perl

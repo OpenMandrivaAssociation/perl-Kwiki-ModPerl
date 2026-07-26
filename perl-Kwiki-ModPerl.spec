@@ -1,14 +1,12 @@
 %define upstream_name	 Kwiki-ModPerl
-%define upstream_version 0.09
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	6
+Version:	0.09
+Release:	7
 Summary:	Enable Kwiki to work under mod_perl 
 License:	GPL
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}/
-Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Kwiki/%{upstream_name}-%{upstream_version}.tar.bz2
+Url:		https://metacpan.org/dist/%{upstream_name}/
+Source0:	ftp://ftp.perl.org/pub/CPAN/modules/by-module/Kwiki/%{upstream_name}-%{version}.tar.bz2
 Patch0:		perl-Kwiki-ModPerl-0.09-Parenthesise-qw-explicitly.patch
 
 BuildRequires:	make
@@ -22,7 +20,7 @@ Requires:	apache-mod_perl
 This module allows you to use Kwiki as a mod_perl content handler.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 %patch0 -p1 -b .fix-build
 
 %build
